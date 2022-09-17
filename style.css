@@ -32,3 +32,8 @@ main{
     background-repeat: no-repeat;
     width:50vw;
 }
+
+
+#sign-up-id, #log-in-id{
+    display: none;
+}
