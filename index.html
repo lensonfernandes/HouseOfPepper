@@ -19,19 +19,33 @@
         <div class="container-fluid">
        
           <a class="navbar-brand" href="#">
-            <img src="./logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top ">Navbar</a>
+            <img src="./logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top ">House of Pepper</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link home-link  active" aria-current="page" href="#" id="home-link" onclick="showHome()">Home</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link "  id="signuplink" aria-current="page" href="#" onclick="showSignUp()">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link "  id="loginlink" aria-current="page" href="#" onclick="showLogIn()">Login</a>
+              </li>
+            </ul>
+          </div>
 
-
-          <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active " aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item">
+               <li class="nav-item">
                 <a class="nav-link" href="#">Features</a>
               </li>
               <li class="nav-item">
@@ -39,26 +53,137 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
+              </li> -->
+            <!-- </ul>
 
 
 
         
           </div>
 
-          <button class="btn btn-outline-success" type="submit">Search</button>
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </div>
+          <button class="btn btn-outline-success m-1" type="button">Sign Up</button>
+          <button class="btn btn-outline-success" type="button">Log In</button>
+       </div> --> 
       </nav>
 
-<div class="main">
-      <main class="d-flex flex-column bd-highlight  justify-content-around align-items-center mb-2">
-        <h1>Welcome to House Of Pepper</h1>
-        <p>Your one stop destination for Home Grown Black Pepper. From Our Farm to Your Kitchen, we make it possible!!!</p>
-        <button>Request a Call</button>
-      </main>
+<div class="main container " id="home" >
+  <div class="left"> <main class=" bd-highlight   mb-2 p-4" >
+        <h1 class="display-3 lead text-black">Welcome to House Of Pepper</h1>
+        <p class="lead">Your one stop destination for Home Grown Black Pepper. From Our Farm to Your Kitchen, we make it possible!!!</p>
+        <button class="btn btn-primary align-self-start " onclick="showSignUp()" >Sign Up</button>
+        <button class="btn btn-primary align-self-start " onclick="showLogIn()">Log In</button>
+      </main></div>
+
+    <div class="right">
+      
     </div>
+     
+    </div>
+
+
+
+
+
+    <div class="all-forms-container  container">
+      <div class="form-1 " id="sign-up-id">
+          <h2>Sign Up Form</h2>
+        <form class="row g-3 needs-validation" novalidate>
+
+
+          <div class="col-md-4">
+            <label for="firstNameId" class="form-label">First name</label>
+            <input type="text" class="form-control" id="firstNameId"  required onkeyup="firstNameCheck()">
+            <div class="valid-feedback" id="valid-feedback-firstNameId">
+              Looks good!
+            </div>
+            <div class="invalid-feedback" id="invalid-feedback-firstNameId">
+              Hmm, Looks like you have not entered your First Name.
+            </div>
+          </div>
+
+
+          <div class="col-md-4">
+            <label for="lastNameId" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="lastNameId"  required onkeyup="lastNameCheck()">
+            <div class="valid-feedback" id="valid-feedback-lastNameId">
+              Looks good!
+            </div>
+            <div class="invalid-feedback" id="invalid-feedback-lastNameId">
+              Hmm, Looks like you have not entered your Last Name.
+            </div>
+          </div>
+
+
+
+
+          <div class="col-md-4">
+            <label for="emailId" class="form-label">Email</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text" id="inputGroupPrepend">@</span>
+              <input type="text" class="form-control" id="emailId" aria-describedby="inputGroupPrepend" required onkeyup="emailCheck()">
+              <div class="invalid-feedback" id="invalid-feedback-emailId">
+                Please enter your email Id.
+              </div>
+              <div class="valid-feedback" id="valid-feedback-emailId">
+                Looks good.
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="col-md-6">
+            <label for="pNo" class="form-label">PhoneNumber</label>
+            <input type="number" class="form-control" id="pNo" required>
+            <div class="invalid-feedback">
+              Please provide a valid phoneNumber.
+            </div>
+          </div>
+
+
+
+          <div class="col-md-6"><label for="pass1" class="form-label">Password</label>
+          <input type="password" id="pass1" class="form-control" aria-describedby="passwordHelpBlock">
+          <div id="passwordHelpBlock" class="form-text">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+          </div></div>
+          
+          <div class="col-md-6"> <label for="pass2" class="form-label">Password</label>
+      <input type="password" id="pass2" class="form-control" aria-describedby="passwordHelpBlock">
+      <div id="passwordHelpBlock" class="form-text">
+        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+      </div>
+    </div>
+         
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit" onclick="checkPass1Pass2Match()">Submit form</button>
+          </div>
+        </form>
+      
+      </div>
+      
+      <div class="form-2" id="log-in-id">
+          <h2>Log In Form</h2>
+        <form>
+          <div class="form-group">
+            <label for="lEMailId">Email address</label>
+            <input type="email" class="form-control" id="lEMailId" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="lp1Id">Password</label>
+            <input type="password" class="form-control" id="lp1Id" placeholder="Password">
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="loginCheck()">Submit</button>
+        </form>
+      
+      </div>
+      </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
