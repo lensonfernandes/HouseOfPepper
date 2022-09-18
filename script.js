@@ -175,7 +175,7 @@ function checkPass1Pass2Match(){
    console.log(p2);
 
    if(p1==p2)
-      alert("Password's match. SignUp Done")
+      alert("Password's match. Checking if all fields are correct. If yes, youll receive a confirmation that User Details are saved")
    else
        alert('Passwords dont match');
 
