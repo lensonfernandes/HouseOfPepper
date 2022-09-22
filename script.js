@@ -1,4 +1,4 @@
-console.log("Test1")
+//console.log("Test1")
 
 function showHome(){
 
@@ -48,7 +48,7 @@ let tNc = false;
 
 function firstNameCheck(){
     let firstName = document.getElementById("firstNameId").value;
-    console.log(firstName);
+    //console.log(firstName);
 
     if(firstName.length >= 2)
     {
@@ -68,7 +68,7 @@ function firstNameCheck(){
 
 function lastNameCheck(){
     let lastName = document.getElementById("lastNameId").value;
-    console.log(lastName);
+   // console.log(lastName);
 
     if(lastName.length >= 2)
     {
@@ -88,7 +88,7 @@ function lastNameCheck(){
 function emailCheck()
 {
     let emailAddress = document.getElementById("emailId").value;
-    console.log(emailAddress);
+   // console.log(emailAddress);
 
 // if(user.length >=2 )
 //     { 
@@ -155,33 +155,33 @@ let users_DB=[];
 function checkPass1Pass2Match(){
 
     firstName = document.getElementById('firstNameId').value;
-   console.log(firstName);
+   //console.log(firstName);
 
     lastName = document.getElementById('lastNameId').value;
-   console.log(lastName);
+  // console.log(lastName);
 
     userName = document.getElementById('emailId').value;
-   console.log(userName);
+   //console.log(userName);
 
    phoneNumber = document.getElementById('pNo').value;
-   console.log(phoneNumber);
+   //console.log(phoneNumber);
 
 
-   console.log('inside');
+   //console.log('inside');
    p1 = document.getElementById('pass1').value;
-   console.log(p1);
+   //console.log(p1);
 
     p2 = document.getElementById('pass2').value;
-   console.log(p2);
+   //console.log(p2);
 
    if(p1==p2)
-      alert("Password's match. Checking if all fields are correct. If yes, youll receive a confirmation that User Details are saved")
+      alert("'Password' and 'Confirm Password' are identical. Checking if all fields are correct. If yes, youll receive a confirmation that User Details are saved")
    else
        alert('Passwords dont match');
 
-console.log(firstNameCondition);
-console.log(lastNameCondition)
-console.log(userNameCondition)
+//console.log(firstNameCondition);
+//console.log(lastNameCondition)
+//console.log(userNameCondition)
 console.log(p1==p2)
 
       if( firstNameCondition && lastNameCondition  && userNameCondition  && p1==p2)
@@ -192,11 +192,13 @@ console.log(p1==p2)
         lastName,
         userName,
         phoneNumber,
-        p1
+        p1,
+        password: encryptPassword(p1),
 
     } 
     users_DB.push(userDetails);
-    alert('User Details Saved');
+    alert('User Details Saved with password enccrytion');
+    document.getElementById('sform').reset()
     console.log(users_DB);
 }
 }
@@ -209,12 +211,56 @@ function loginCheck(){
     //check if lEmail exists
     //if yes, then check lp1 matches saved password
 
-    if(users_DB.find(user => user.userName === lEmail && user.p1 ===lp1))
-         alert('Log In Success');
+    if(users_DB.find(user => user.userName === lEmail && user.p1 ===lp1&& decryptPassword(user.password) === lp1))
+         alert('Log In Success. Lets get you in.');
      else
-     alert('Log In Failed');
+     alert('Log In Failed. Looks like there is some mismatch');
 
 
 
 
+}
+
+let encryptionRule = {
+	'A': 'N', 'B': 'O', 'C': 'P', 'D': 'Q',
+	'E': 'R', 'F': 'S', 'G': 'T', 'H': 'U',
+	'I': 'V', 'J': 'W', 'K': 'X', 'L': 'Y',
+	'M': 'Z', 'N': 'A', 'O': 'B', 'P': 'C',
+	'Q': 'D', 'R': 'E', 'S': 'F', 'T': 'G',
+	'U': 'H', 'V': 'I', 'W': 'J', 'X': 'K',
+	'Y': 'L', 'Z': 'M',
+	'a': 'n', 'b': 'o', 'c': 'p', 'd': 'q',
+	'e': 'r', 'f': 's', 'g': 't', 'h': 'u',
+	'i': 'v', 'j': 'w', 'k': 'x', 'l': 'y',
+	'm': 'z', 'n': 'a', 'o': 'b', 'p': 'c',
+	'q': 'd', 'r': 'e', 's': 'f', 't': 'g',
+	'u': 'h', 'v': 'i', 'w': 'j', 'x': 'k',
+	'y': 'l', 'z': 'm',
+	'0': '5', '1': '6', '2': '7', '3': '8',
+	'4': '9', '5': '0', '6': '1', '7': '2',
+	'8': '3', '9': '4',
+	'!': '#', '$': '%', '&': '+', '-': '@',
+	'_': '~', '#': '!', '%': '$', '+': '&',
+	'@': '-', '~': '_'
+}
+
+function encryptPassword(inputString){
+	let encyptedString = ''
+	for(let char of inputString){
+		encyptedString = encyptedString + encryptionRule[char]
+	}
+    console.log(encyptedString);
+	return encyptedString
+}
+
+function decryptPassword(encyptedString){
+	let originalString = ''
+	let keys = Object.keys(encryptionRule)
+	let values = Object.values(encryptionRule)
+	for(let char of encyptedString){
+		let requiredIndex = values.indexOf(char)
+		originalString = originalString + keys[requiredIndex]
+	}
+    console.log(originalString)
+	return originalString
 }

@@ -20,7 +20,7 @@
        
           <a class="navbar-brand" href="#">
             <img src="./logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top ">House of Pepper</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -38,6 +38,7 @@
                 <a class="nav-link "  id="loginlink" aria-current="page" href="#" onclick="showLogIn()">Login</a>
               </li>
             </ul>
+         
           </div>
 
           <!-- <div class="collapse navbar-collapse" id="navbarNav">
@@ -87,10 +88,10 @@
     <div class="all-forms-container  container p-2">
       <div class="form-1  p-2" id="sign-up-id">
           <h2>Sign Up Form</h2>
-        <form class="row g-3 needs-validation p-2" novalidate>
+        <form class="row g-3 needs-validation p-2" novalidate id="sform">
 
 
-          <div class="col-md-4">
+          <div class="col-md-6">
             <label for="firstNameId" class="form-label">First name</label>
             <input type="text" class="form-control" id="firstNameId"  required onkeyup="firstNameCheck()">
             <div class="valid-feedback" id="valid-feedback-firstNameId">
@@ -102,7 +103,7 @@
           </div>
 
 
-          <div class="col-md-4">
+          <div class="col-md-6">
             <label for="lastNameId" class="form-label">Last name</label>
             <input type="text" class="form-control" id="lastNameId"  required onkeyup="lastNameCheck()">
             <div class="valid-feedback" id="valid-feedback-lastNameId">
@@ -116,7 +117,7 @@
 
 
 
-          <div class="col-md-4">
+          <div class="col-md-6">
             <label for="emailId" class="form-label">Email</label>
             <div class="input-group has-validation">
               <span class="input-group-text" id="inputGroupPrepend">@</span>
@@ -133,7 +134,7 @@
 
 
 
-          <div class="col-md-6">
+          <div class="col-md-4">
             <label for="pNo" class="form-label">PhoneNumber</label>
             <input type="number" class="form-control" id="pNo" required>
             <div class="invalid-feedback">
@@ -146,13 +147,13 @@
           <div class="col-md-6"><label for="pass1" class="form-label">Password</label>
           <input type="password" id="pass1" class="form-control" aria-describedby="passwordHelpBlock">
           <div id="passwordHelpBlock" class="form-text">
-            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+            Try to make your password Super Random :)
           </div></div>
           
-          <div class="col-md-6"> <label for="pass2" class="form-label">Password</label>
+          <div class="col-md-6"> <label for="pass2" class="form-label">Confirm Password</label>
       <input type="password" id="pass2" class="form-control" aria-describedby="passwordHelpBlock">
       <div id="passwordHelpBlock" class="form-text">
-        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+        Your password must be same as previous Password entered
       </div>
     </div>
          
@@ -168,18 +169,18 @@
         <form>
           <div class="form-group ">
             <label for="lEMailId">Email address</label>
-            <input type="email" class="form-control" id="lEMailId" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control m-2" id="lEMailId" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="lp1Id">Password</label>
-            <input type="password" class="form-control" id="lp1Id" placeholder="Password">
+            <input type="password" class="form-control m-2" id="lp1Id" placeholder="Password">
           </div>
           <!-- <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div> -->
-          <button type="button" class="btn btn-primary" onclick="loginCheck()">Log In</button>
+          <button type="button" class="btn btn-primary m-2" onclick="loginCheck()">Log In</button>
         </form>
       
       </div>
